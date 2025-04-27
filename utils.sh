@@ -7,7 +7,6 @@ is_installed() {
   pacman -Qi "$1" &>/dev/null
 }
 
-helper=""
 check_installed_helper() {
   if pacman -Qi yay &>/dev/null; then
     helper="yay"
@@ -23,6 +22,11 @@ check_installed_helper
 install_packages() {
   local packages=("$@")
   local to_install=()
+
+  if [ -z "$helper" ]; then
+    echo "Error: AUR helper not defined!"
+    exit 1
+  fi
 
   for pkg in "${packages[@]}"; do
     if ! is_installed "$pkg"; then
