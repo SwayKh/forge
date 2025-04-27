@@ -7,7 +7,7 @@ is_linksym_installed() {
   pacman -Qi "linksym" &>/dev/null
 }
 
-if ! is_stow_installed; then
+if ! is_linksym_installed; then
   echo "Please install linksym to create symlinks from dotfiles directory"
   exit 1
 fi
@@ -18,7 +18,7 @@ cd "$HOME"
 if [ -d "$repo_dir" ]; then
   echo "Repository '$repo_dir' already exists. Skipping clone"
 else
-  git clone "$url"
+  git clone --recurse-submodules "$url"
 fi
 
 # Check if the clone was successful
