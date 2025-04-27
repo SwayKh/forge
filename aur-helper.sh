@@ -21,15 +21,15 @@ if command -v "$helper" >/dev/null 2>&1; then
   exit 0
 fi
 
-echo "Installing required dependecies."
-sudo pacman -Sy --needed --noconfirm git base-devel
+echo "Installing required dependencies."
+sudo pacman -S --needed --noconfirm git base-devel
 
 tmp_dir=$(mktemp -d)
 echo "Cloning $helper into $tmp_dir."
 git clone "https://aur.archlinux.org/${helper}.git" "$tmp_dir/$helper"
 
 cd "$tmp_dir/$helper"
-echo "Builing $helper"
+echo "Building $helper"
 makepkg -si --noconfirm
 
 echo "DONE!"
