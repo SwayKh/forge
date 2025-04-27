@@ -17,12 +17,11 @@ cd "$HOME"
 # Check if the repository already exists
 if [ -d "$repo_dir" ]; then
   echo "Repository '$repo_dir' already exists. Skipping clone"
-else
-  git clone --recurse-submodules "$url"
+  exit 1
 fi
 
 # Check if the clone was successful
-if [ $? -eq 0 ]; then
+if git clone --recurse-submodules "$url"; then
   cd "$repo_dir"
   linksym update
   linksym source
