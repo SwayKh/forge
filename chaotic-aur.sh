@@ -28,12 +28,7 @@ update_pacman_config() {
   fi
 }
 
-check_chaotic_exists() {
-  pacman -Qi chaotic-keyring &>/dev/null
-  return $?
-}
-
-if check_chaotic_exists; then
+if pacman -Qi chaotic-keyring &>/dev/null; then
   newline
   echo "Chaotic AUR is already installed,"
   echo "Updating system"
