@@ -6,13 +6,15 @@ and other manual parts of my setup.
 ## Features
 This scripts takes care of the following:
 1. Update the system
-2. Install AUR helper of choice(yay/paru)
+2. Install AUR helper of choice (yay/paru)
 3. Setup chaotic-aur on the system
-4. Handle package installation by categories in programs.conf(edit it as your
+4. Handle package installation in categories from [programs.conf](./programs.conf) (edit it as your
    needs)
-5. Installs TPM plugin manager for tmux
-6. Auto enabled basic systemd services
-7. Clones and Links my dotfiles, using [linksym](https://github.com/SwayKh/linksym)
+5. Installs TPM for tmux
+6. Auto enables basic systemd services
+7. Clones and links my [dotfiles](https://github.com/SwayKh/dotfiles), using [linksym](https://github.com/SwayKh/linksym)
+8. Adds a user systemd timer to change wallpaper and colors on the system
+   using [hellwal](https://github.com/danihek/hellwal) and  [swww](https://github.com/LGFae/swww)
 
 ## Installation
 
