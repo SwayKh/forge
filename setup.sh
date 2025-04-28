@@ -133,7 +133,7 @@ AUR         # Install a AUR helper
 CHAOTIC_AUR # Install chaotic aur
 PACKAGES    # Install packages listed in programs.conf
 TPM         # Install tpm for tmux
-DOTFILES    # Install and link dotfiles
 SERVICES    # Setup systemd services
+DOTFILES    # Install and link dotfiles
 
 echo "Setup complete! You may want to reboot your system."

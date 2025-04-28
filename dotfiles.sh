@@ -17,7 +17,7 @@ cd "$HOME"
 # Check if the repository already exists
 if [ -d "$repo_dir" ]; then
   echo "Repository '$repo_dir' already exists. Skipping clone"
-  exit 1
+  exit 0
 fi
 
 # Check if the clone was successful
