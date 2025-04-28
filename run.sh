@@ -121,6 +121,14 @@ PACKAGES() {
   install_packages "${CONTROLLER[@]}"
 }
 
+SERVICES() {
+  if confirm "Do you want to enable systemd-services? (y/n): "; then
+    ./services.sh
+  else
+    echo "Service enabling skipped."
+  fi
+}
+
 AUR         # Install a AUR helper
 CHAOTIC_AUR # Install chaotic aur
 PACKAGES    # Install packages listed in programs.conf

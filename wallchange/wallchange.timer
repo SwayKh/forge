@@ -1,0 +1,11 @@
+[Unit]
+Description=Change wallpaper every hour and refresh Dunst and Hellwal
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+Unit=wallchange.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target
