@@ -20,16 +20,15 @@ for service in "${SERVICES[@]}"; do
 done
 
 echo "Configuring user systemd services"
-if [ -d "./wallchange" ]; then
-  mkdir -p "$HOME/.config/systemd/user"
-  cp ./wallchange/* "$HOME/.config/systemd/user/"
-
-  if ! systemctl --user is-enabled "wallchange.timer" &>/dev/null; then
-    echo "Enabling wallchange.timer..."
+if ! systemctl --user is-enabled "wallchange.timer" &>/dev/null; then
+  echo "Enabling wallchange.timer..."
+  if [ -d "./wallchange" ]; then
+    mkdir -p "$HOME/.config/systemd/user"
+    cp ./wallchange/* "$HOME/.config/systemd/user/"
     systemctl --user enable wallchange.timer
   else
-    echo "wallchange.timer is already enabled"
+    echo "No wallchange directory found. Skipping user services setup."
   fi
 else
-  echo "No wallchange directory found. Skipping user services setup."
+  echo "wallchange.timer is already enabled"
 fi
