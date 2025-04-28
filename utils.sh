@@ -36,6 +36,6 @@ install_packages() {
 
   if [ ${#to_install[@]} -ne 0 ]; then
     echo "Installing: ${to_install[*]}"
-    "$helper" -S --noconfirm "${to_install[@]}"
+    "$helper" -S --needed --noconfirm "${to_install[@]}"
   fi
 }
