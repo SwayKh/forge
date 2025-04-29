@@ -3,11 +3,7 @@
 url="https://github.com/SwayKh/dotfiles"
 repo_dir="dotfiles"
 
-is_linksym_installed() {
-  pacman -Qi "linksym" &>/dev/null
-}
-
-if ! is_linksym_installed; then
+if ! pacman -Qi "linksym" &>/dev/null; then
   echo "Please install linksym to create symlinks from dotfiles directory"
   exit 1
 fi

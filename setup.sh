@@ -1,34 +1,6 @@
 #! /usr/bin/env bash
 
-# Check dotfiles beings clones
-# Check scripts being cloned
-# Check if linksym is installed
-# Check yay/paru is installed
-#
-# Make variable groups for differenct kinds of packages
-# Make sure to install dependencies
-# install them with yay/paru
-#
 # Make a cool logo
-# Make helper functions for checking if package is installed
-# Only works with dotfiles being cloned anyways.
-#
-# Make notes for TPM and other personally installed packages
-#
-# Window manager, it's components and dependencies
-# Audio programs
-# GUI programs
-# AUR programs
-# Dependencies
-# Fonts
-# Programming languages
-# Setup Chaotic AUR
-# Clone dotfiles
-# Setup tpm
-# Setup yay/paru install
-# Start any services (like ly login manager/wallchange)
-#
-# Setup Paru/Yay and Chaotic AUR before installing the programs
 
 clear
 set -e
