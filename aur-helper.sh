@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
 
 newline() { echo ""; }
+echo "--------------------------------------------------------------------------------"
 
 helper="$1"
 
 # if no argument was provided to the script
 if [[ -z "$helper" ]]; then
-  newline
   echo -ne "Choose an AUR helper to install (paru/yay): "
   read -r helper
 fi
@@ -36,7 +36,6 @@ echo "Cloning $helper into $tmp_dir."
 git clone "https://aur.archlinux.org/${helper}.git" "$tmp_dir/$helper"
 
 cd "$tmp_dir/$helper"
-newline
 echo "Building $helper"
 makepkg -si --noconfirm
 

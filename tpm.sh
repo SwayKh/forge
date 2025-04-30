@@ -22,5 +22,4 @@ else
   git clone https://github.com/tmux-plugins/tpm $tpm_dir
 fi
 
-newline
 echo "TPM installed successfully!"

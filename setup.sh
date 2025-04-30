@@ -17,6 +17,8 @@ EOF
 set -e
 clear
 print_logo
+echo "--------------------------------------------------------------------------------"
+echo "--------------------------------------------------------------------------------"
 
 # Source the package list
 if [ ! -f "programs.conf" ]; then
@@ -33,7 +35,7 @@ echo "Updating the system..."
 sudo pacman -Syu --noconfirm
 
 confirm() {
-  newline
+  echo "--------------------------------------------------------------------------------"
   local prompt="$1"
   echo -ne "$prompt (y/n): "
   read -r answer
@@ -42,11 +44,7 @@ confirm() {
 }
 
 AUR() {
-  local helper=""
-  newline
-  echo -ne "Choose an AUR helper to use (paru/yay): "
-  read -r helper
-  ./aur-helper.sh "$helper"
+  ./aur-helper.sh
 }
 
 CHAOTIC_AUR() {
@@ -78,39 +76,44 @@ DOTFILES() {
 
 PACKAGES() {
   # Install packages by category
+  if confirm "Do you want to install package from programs.conf? (y/n): "; then
 
-  echo "Installing base system packages..."
-  install_packages "${SYSTEM_PKGS[@]}"
+    echo "Installing base system packages..."
+    install_packages "${SYSTEM_PKGS[@]}"
 
-  echo "Installing basic cli tools..."
-  install_packages "${BASE_CLI_PKGS[@]}"
+    echo "Installing basic cli tools..."
+    install_packages "${BASE_CLI_PKGS[@]}"
 
-  echo "Installing extra useful cli tools..."
-  install_packages "${EXTRA_CLI_PKGS[@]}"
+    echo "Installing extra useful cli tools..."
+    install_packages "${EXTRA_CLI_PKGS[@]}"
 
-  echo "Installing Base GUI packages..."
-  install_packages "${BASE_GUI_PKGS[@]}"
+    echo "Installing Base GUI packages..."
+    install_packages "${BASE_GUI_PKGS[@]}"
 
-  echo "Installing Extra GUI packages..."
-  install_packages "${EXTRA_GUI_PKGS[@]}"
+    echo "Installing Extra GUI packages..."
+    install_packages "${EXTRA_GUI_PKGS[@]}"
 
-  echo "Installing packages for audio..."
-  install_packages "${AUDIO_PKGS[@]}"
+    echo "Installing packages for audio..."
+    install_packages "${AUDIO_PKGS[@]}"
 
-  echo "Installing nerd fonts..."
-  install_packages "${FONTS[@]}"
+    echo "Installing nerd fonts..."
+    install_packages "${FONTS[@]}"
 
-  echo "Installing programming languages..."
-  install_packages "${PROGRAMMING_LANGS[@]}"
+    echo "Installing programming languages..."
+    install_packages "${PROGRAMMING_LANGS[@]}"
 
-  echo "Installing River window manager and its utilities..."
-  install_packages "${WINDOW_MANAGER[@]}"
+    echo "Installing River window manager and its utilities..."
+    install_packages "${WINDOW_MANAGER[@]}"
 
-  echo "Installing dependency programs for script and other software..."
-  install_packages "${DEPENDENCIES[@]}"
+    echo "Installing dependency programs for script and other software..."
+    install_packages "${DEPENDENCIES[@]}"
 
-  echo "Installing packages for Xbox controller support..."
-  install_packages "${CONTROLLER[@]}"
+    echo "Installing packages for Xbox controller support..."
+    install_packages "${CONTROLLER[@]}"
+
+  else
+    echo "Service enabling skipped."
+  fi
 }
 
 SERVICES() {
@@ -128,5 +131,6 @@ TPM         # Install tpm for tmux
 SERVICES    # Setup systemd services
 DOTFILES    # Install and link dotfiles
 
+echo "--------------------------------------------------------------------------------"
 newline
 echo "Setup complete! You may want to reboot your system."
