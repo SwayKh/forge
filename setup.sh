@@ -37,7 +37,7 @@ sudo pacman -Syu --noconfirm
 confirm() {
   echo "--------------------------------------------------------------------------------"
   local prompt="$1"
-  echo -ne "$prompt (y/n): "
+  echo -ne "$prompt"
   read -r answer
   answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
   [[ "$answer" == "y" || "$answer" == "yes" ]]
