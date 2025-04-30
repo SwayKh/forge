@@ -1,9 +1,20 @@
 #! /usr/bin/env bash
 
 # Make a cool logo
+print_logo() {
+  cat <<'EOF'
+  __
+ / _| ___  _ __ __ _  ___
+| |_ / _ \| '__/ _` |/ _ \
+|  _| (_) | | | (_| |  __/
+|_|  \___/|_|  \__, |\___|
+               |___/
+EOF
+}
 
-clear
 set -e
+clear
+print_logo
 
 # Source the package list
 if [ ! -f "programs.conf" ]; then
