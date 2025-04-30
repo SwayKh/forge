@@ -5,6 +5,7 @@ set -e
 newline() { echo ""; }
 
 update_system() {
+  newline
   sudo pacman -Syu --noconfirm
   echo "System updated successfully."
 }

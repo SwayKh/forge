@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+newline() { echo ""; }
+
 # Make a cool logo
 print_logo() {
   cat <<'EOF'
@@ -18,6 +20,7 @@ print_logo
 
 # Source the package list
 if [ ! -f "programs.conf" ]; then
+  newline
   echo "Error: programs.conf not found!"
   exit 1
 fi
@@ -25,10 +28,12 @@ source programs.conf
 
 source utils.sh
 
+newline
 echo "Updating the system..."
 sudo pacman -Syu --noconfirm
 
 confirm() {
+  newline
   local prompt="$1"
   echo -ne "$prompt (y/n): "
   read -r answer
@@ -38,6 +43,7 @@ confirm() {
 
 AUR() {
   local helper=""
+  newline
   echo -ne "Choose an AUR helper to use (paru/yay): "
   read -r helper
   ./aur-helper.sh "$helper"
@@ -47,6 +53,7 @@ CHAOTIC_AUR() {
   if confirm "Do you want to install Chaotic AUR? (y/n): "; then
     ./chaotic-aur.sh
   else
+    newline
     echo "Chaotic AUR installation skipped."
   fi
 }
@@ -55,6 +62,7 @@ TPM() {
   if confirm "Do you want to install TPM(tmux plugin manager)? (y/n): "; then
     ./tpm.sh
   else
+    newline
     echo "TPM installation skipped."
   fi
 }
@@ -63,6 +71,7 @@ DOTFILES() {
   if confirm "Do you want to clone dotfiles and install symlinks? (y/n): "; then
     ./dotfiles.sh
   else
+    newline
     echo "dotfiles installation skipped."
   fi
 }
@@ -119,4 +128,5 @@ TPM         # Install tpm for tmux
 SERVICES    # Setup systemd services
 DOTFILES    # Install and link dotfiles
 
+newline
 echo "Setup complete! You may want to reboot your system."
