@@ -3,6 +3,6 @@ Description=Change wallpaper service
 
 [Service]
 Type=oneshot
-ExecStart=%h/dotfiles/scripts/wallchange.sh
+ExecStart=%h/dotfiles/scripts/random-swwwbg
 Environment="DISPLAY=:0"
 Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus"
