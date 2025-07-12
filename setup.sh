@@ -102,7 +102,7 @@ PACKAGES() {
     echo "Installing programming languages..."
     install_packages "${PROGRAMMING_LANGS[@]}"
 
-    echo "Installing River window manager and its utilities..."
+    echo "Installing Window manager/Compositor and its utilities..."
     install_packages "${WINDOW_MANAGER[@]}"
 
     echo "Installing dependency programs for script and other software..."

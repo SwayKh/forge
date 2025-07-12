@@ -8,6 +8,7 @@ SERVICES=(
   "ly"
   "paccache"
   "reflector"
+  "tlp"
 )
 
 # Enable services
