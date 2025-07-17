@@ -26,6 +26,7 @@ if [ ! -f "programs.conf" ]; then
   echo "Error: programs.conf not found!"
   exit 1
 fi
+
 source programs.conf
 
 source utils.sh
@@ -125,6 +126,9 @@ SERVICES() {
 }
 
 AUR         # Install a AUR helper
+
+check_installed_helper # Set the helper variable in Utils.sh script, after installing Paru/Yay
+
 CHAOTIC_AUR # Install chaotic aur
 PACKAGES    # Install packages listed in programs.conf
 TPM         # Install tpm for tmux

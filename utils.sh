@@ -20,7 +20,6 @@ check_installed_helper() {
     exit 1
   fi
 }
-check_installed_helper
 
 install_packages() {
   local packages=("$@")
