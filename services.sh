@@ -2,6 +2,8 @@
 
 newline() { echo ""; }
 
+user=$(whoami)
+
 SERVICES=(
   "NetworkManager"
   "bluetooth"
@@ -9,6 +11,8 @@ SERVICES=(
   "paccache"
   "reflector"
   "tlp"
+  "sshd"
+  "syncthing@${user}"
 )
 
 # Enable services
