@@ -10,7 +10,7 @@ SERVICES=(
   "ly"
   "paccache"
   "reflector"
-  "tlp"
+  "auto-cpufreq"
   "sshd"
   "syncthing@${user}"
 )
