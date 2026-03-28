@@ -14,7 +14,7 @@ This scripts takes care of the following:
 6. Auto enables basic systemd services
 7. Clones and links my [dotfiles](https://github.com/SwayKh/dotfiles), using [linksym](https://github.com/SwayKh/linksym)
 8. Adds a user systemd timer to change wallpaper and colors on the system
-   using [hellwal](https://github.com/danihek/hellwal) and  [swww](https://github.com/LGFae/swww)
+   using [hellwal](https://github.com/danihek/hellwal) and  [awww](https://codeberg.org/LGFae/owww)
 
 ## Installation
 
